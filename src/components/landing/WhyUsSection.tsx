@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { Zap, Target, Heart, Users, BadgeDollarSign } from "lucide-react";
+import { Zap, Target, Heart, Users, BadgeDollarSign, Compass } from "lucide-react";
 
 const reasons = [
   { icon: Zap, title: "Velocidad", desc: "Entregamos rápido sin sacrificar calidad." },
+  { icon: Compass, title: "Pensamos con vos", desc: "Te ayudamos a definir objetivos y requerimientos para encontrar la solución más efectiva y eficaz." },
   { icon: Target, title: "Metodología profesional", desc: "Aplicamos lo que aprendemos en la UTN con rigor." },
   { icon: Heart, title: "Perfeccionismo", desc: "Cada detalle importa, no nos conformamos con poco." },
   { icon: Users, title: "Acompañamiento", desc: "No te dejamos solo. Estamos con vos en todo el proceso." },
@@ -11,7 +12,8 @@ const reasons = [
 
 const WhyUsSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(200, 40%, 95%) 0%, hsl(155, 30%, 95%) 100%)" }}>
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -26,7 +28,7 @@ const WhyUsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((r, i) => (
             <motion.div
               key={i}

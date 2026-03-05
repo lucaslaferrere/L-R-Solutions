@@ -10,7 +10,7 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="proceso" className="py-24 bg-card relative overflow-hidden">
+    <section id="proceso" className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(210, 20%, 98%) 0%, hsl(200, 30%, 94%) 100%)" }}>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="container">
         <motion.div

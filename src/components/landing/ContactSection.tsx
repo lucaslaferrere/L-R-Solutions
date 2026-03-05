@@ -13,7 +13,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-card relative overflow-hidden">
+    <section id="contacto" className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(210, 20%, 98%) 0%, hsl(155, 25%, 94%) 100%)" }}>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute inset-0 gradient-hero opacity-50" />
       <div className="container relative z-10">
