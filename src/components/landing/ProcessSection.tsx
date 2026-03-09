@@ -10,44 +10,50 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="proceso" className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(210, 20%, 98%) 0%, hsl(200, 30%, 94%) 100%)" }}>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="container">
+    <section id="proceso" className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 grid-pattern opacity-30" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
+
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Nuestro proceso</span>
+          <span className="inline-flex items-center gap-2 text-xs font-mono text-primary uppercase tracking-widest mb-4">
+            <span className="w-8 h-px bg-primary/50" />
+            Nuestro proceso
+            <span className="w-8 h-px bg-primary/50" />
+          </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold mt-3">
             ¿Cómo{" "}
             <span className="gradient-text">trabajamos?</span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((s, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="relative"
+              transition={{ delay: i * 0.1 }}
+              className="relative group"
             >
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px border-t-2 border-dashed border-border" />
+                <div className="hidden lg:block absolute top-5 left-[calc(50%+24px)] w-[calc(100%-48px)] h-px border-t border-dashed border-border" />
               )}
-              <div className="flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-2xl gradient-bg flex items-center justify-center mb-5 relative">
-                  <s.icon size={32} className="text-primary-foreground" />
-                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-secondary text-secondary-foreground text-xs font-bold flex items-center justify-center">
-                    {s.num}
-                  </span>
+              <div className="p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center">
+                    <s.icon size={18} className="text-primary-foreground" />
+                  </div>
+                  <span className="text-xs font-mono text-muted-foreground">{s.num}</span>
                 </div>
-                <h3 className="font-display font-semibold text-lg mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">{s.desc}</p>
+                <h3 className="font-display font-semibold text-sm mb-2">{s.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
             </motion.div>
           ))}

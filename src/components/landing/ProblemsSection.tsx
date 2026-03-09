@@ -10,23 +10,29 @@ const problems = [
 
 const ProblemsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, hsl(200, 80%, 10%) 0%, hsl(200, 60%, 18%) 50%, hsl(155, 40%, 15%) 100%)" }}>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="container">
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-30" />
+      <div className="absolute top-0 left-0 right-0 h-px glow-line" />
+
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">El problema</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold mt-3 text-white">
+          <span className="inline-flex items-center gap-2 text-xs font-mono text-primary uppercase tracking-widest mb-4">
+            <span className="w-8 h-px bg-primary/50" />
+            El problema
+            <span className="w-8 h-px bg-primary/50" />
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold mt-3">
             ¿Te sentís identificado con{" "}
             <span className="gradient-text">alguno de estos problemas?</span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {problems.map((p, i) => (
             <motion.div
               key={i}
@@ -34,13 +40,13 @@ const ProblemsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm shadow-card hover:bg-white/10 transition-all border border-white/10 group"
+              className="group p-6 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-card-hover transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <p.icon size={22} className="text-primary-foreground" />
+              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+                <p.icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-2 text-white">{p.title}</h3>
-              <p className="text-sm text-white/70 leading-relaxed">{p.desc}</p>
+              <h3 className="font-display font-semibold text-sm mb-2 text-foreground">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
         </div>

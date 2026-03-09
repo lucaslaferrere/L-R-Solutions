@@ -12,36 +12,42 @@ const reasons = [
 
 const WhyUsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(200, 40%, 95%) 0%, hsl(155, 30%, 95%) 100%)" }}>
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="container">
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,hsl(155,60%,50%,0.05),transparent)]" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-border" />
+
+      <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">¿Por qué nosotros?</span>
+          <span className="inline-flex items-center gap-2 text-xs font-mono text-secondary uppercase tracking-widest mb-4">
+            <span className="w-8 h-px bg-secondary/50" />
+            ¿Por qué nosotros?
+            <span className="w-8 h-px bg-secondary/50" />
+          </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold mt-3">
             Lo que nos{" "}
             <span className="gradient-text">hace diferentes</span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {reasons.map((r, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center text-center p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-shadow border border-border/50"
+              transition={{ delay: i * 0.08 }}
+              className="group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
-                <r.icon size={22} className="text-primary-foreground" />
+              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+                <r.icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
-              <h3 className="font-display font-semibold mb-1">{r.title}</h3>
+              <h3 className="font-display font-semibold text-sm mb-1">{r.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
             </motion.div>
           ))}

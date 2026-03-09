@@ -14,28 +14,33 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <div className="container flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2">
-          <img src={logo} alt="L&R Solutions" className="h-10 w-10 object-contain" />
-          <span className="font-display font-bold text-lg gradient-text">L&R Solutions</span>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border">
+      <div className="container flex items-center justify-between h-14">
+        <a href="#" className="flex items-center gap-2.5">
+          <img src={logo} alt="L&R Solutions" className="h-8 w-8 object-contain" />
+          <span className="font-display font-semibold text-sm text-foreground">L&R Solutions</span>
         </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-muted"
+            >
               {l.label}
             </a>
           ))}
-          <a href="#contacto" className="gradient-bg text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold shadow-btn hover:opacity-90 transition-opacity">
+          <a
+            href="#contacto"
+            className="ml-3 gradient-bg text-primary-foreground px-4 py-1.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+          >
             Contactanos
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button className="md:hidden p-2 text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -47,13 +52,22 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
-            <div className="container flex flex-col gap-4 py-4">
+            <div className="container flex flex-col gap-1 py-3">
               {navLinks.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-muted"
+                >
                   {l.label}
                 </a>
               ))}
-              <a href="#contacto" onClick={() => setOpen(false)} className="gradient-bg text-primary-foreground px-5 py-2 rounded-lg text-sm font-semibold text-center shadow-btn">
+              <a
+                href="#contacto"
+                onClick={() => setOpen(false)}
+                className="gradient-bg text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium text-center mt-2"
+              >
                 Contactanos
               </a>
             </div>
