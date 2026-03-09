@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Terminal } from "lucide-react";
+import { ArrowRight, Terminal, Database, Cloud, Globe, Cpu, Shield, BarChart3 } from "lucide-react";
 import logo from "@/assets/logo.png";
+
+const orbitNodes = [
+  { icon: Database, label: "Database", angle: 0 },
+  { icon: Cloud, label: "Cloud", angle: 60 },
+  { icon: Globe, label: "Web App", angle: 120 },
+  { icon: Shield, label: "Auth", angle: 180 },
+  { icon: BarChart3, label: "Analytics", angle: 240 },
+  { icon: Cpu, label: "API", angle: 300 },
+];
 
 const HeroSection = () => {
   return (
@@ -27,129 +36,222 @@ const HeroSection = () => {
       <div className="absolute inset-0 noise pointer-events-none" />
 
       <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card text-xs text-muted-foreground mb-8"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse-glow" />
-            <span className="font-mono">Desarrollo de software a medida</span>
-          </motion.div>
-
-          {/* Title */}
-          <motion.h1
-            className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            Tu negocio merece{" "}
-            <span className="gradient-text">tecnología que trabaje por vos</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-            className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mt-6 leading-relaxed"
-          >
-            Somos el ibuprofeno tecnológico para tu dolor de cabeza.
-            Transformamos procesos manuales en sistemas inteligentes que ahorran tiempo y hacen crecer tu negocio.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center mt-10"
-          >
-            <motion.a
-              href="#contacto"
-              className="gradient-bg text-primary-foreground px-6 py-3 rounded-xl font-medium shadow-btn hover:shadow-glow transition-all flex items-center justify-center gap-2 text-sm"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Text content */}
+          <div className="text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card text-xs text-muted-foreground mb-8"
             >
-              Hablemos
-              <ArrowRight size={16} />
-            </motion.a>
-            <motion.a
-              href="#servicios"
-              className="px-6 py-3 rounded-xl font-medium border border-border bg-card hover:bg-muted transition-all flex items-center justify-center gap-2 text-sm text-foreground"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Terminal size={16} />
-              Ver servicios
-            </motion.a>
-          </motion.div>
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse-glow" />
+              <span className="font-mono">Desarrollo de software a medida</span>
+            </motion.div>
 
-          {/* Code block decoration */}
+            {/* Title */}
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              Tu negocio merece{" "}
+              <span className="gradient-text">tecnología que trabaje por vos</span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.6 }}
+              className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mt-6 leading-relaxed"
+            >
+              Somos el ibuprofeno tecnológico para tu dolor de cabeza.
+              Transformamos procesos manuales en sistemas inteligentes que ahorran tiempo y hacen crecer tu negocio.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mt-10"
+            >
+              <motion.a
+                href="#contacto"
+                className="gradient-bg text-primary-foreground px-6 py-3 rounded-xl font-medium shadow-btn hover:shadow-glow transition-all flex items-center justify-center gap-2 text-sm"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Hablemos
+                <ArrowRight size={16} />
+              </motion.a>
+              <motion.a
+                href="#servicios"
+                className="px-6 py-3 rounded-xl font-medium border border-border bg-card hover:bg-muted hover:border-primary/30 transition-all flex items-center justify-center gap-2 text-sm text-foreground"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Terminal size={16} />
+                Ver servicios
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Right: Architecture Diagram */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="mt-16 mx-auto max-w-xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="relative hidden lg:flex items-center justify-center"
           >
-            <div className="rounded-xl border border-border bg-card overflow-hidden shadow-card">
-              <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border">
-                <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-secondary/40" />
-                <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
-                <span className="ml-3 text-xs text-muted-foreground font-mono">terminal</span>
+            <div className="relative w-[420px] h-[420px]">
+              {/* Orbital rings */}
+              <div className="absolute inset-0 rounded-full border border-border/30" />
+              <div className="absolute inset-8 rounded-full border border-border/20" />
+              <div className="absolute inset-16 rounded-full border border-border/10" />
+
+              {/* Animated ring glow */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, transparent, hsl(200, 80%, 55%, 0.15), transparent, hsl(155, 60%, 50%, 0.1), transparent)",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Data flow lines - animated dashes */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 420">
+                {orbitNodes.map((_, i) => {
+                  const angle = (i * 60 - 90) * (Math.PI / 180);
+                  const cx = 210 + 170 * Math.cos(angle);
+                  const cy = 210 + 170 * Math.sin(angle);
+                  return (
+                    <motion.line
+                      key={i}
+                      x1="210" y1="210" x2={cx} y2={cy}
+                      stroke="url(#lineGrad)"
+                      strokeWidth="1"
+                      strokeDasharray="4 4"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{ pathLength: 1, opacity: 0.4 }}
+                      transition={{ delay: 1 + i * 0.15, duration: 0.8 }}
+                    />
+                  );
+                })}
+                <defs>
+                  <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="hsl(155, 60%, 50%)" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              {/* Data flow particles */}
+              {orbitNodes.map((_, i) => {
+                const angle = (i * 60 - 90) * (Math.PI / 180);
+                const ex = 170 * Math.cos(angle);
+                const ey = 170 * Math.sin(angle);
+                return (
+                  <motion.div
+                    key={`particle-${i}`}
+                    className="absolute w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_hsl(200,80%,55%)]"
+                    style={{ left: "50%", top: "50%", marginLeft: -3, marginTop: -3 }}
+                    animate={{
+                      x: [0, ex, 0],
+                      y: [0, ey, 0],
+                      opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      delay: 1.5 + i * 0.5,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                      ease: "easeInOut",
+                    }}
+                  />
+                );
+              })}
+
+              {/* Center hub */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="w-20 h-20 rounded-2xl border border-primary/30 bg-card flex items-center justify-center shadow-[0_0_40px_hsl(200,80%,55%,0.15)]"
+                  animate={{ boxShadow: ["0 0 30px hsl(200,80%,55%,0.1)", "0 0 50px hsl(200,80%,55%,0.2)", "0 0 30px hsl(200,80%,55%,0.1)"] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <img src={logo} alt="L&R" className="w-10 h-10 object-contain" />
+                </motion.div>
               </div>
-              <div className="p-4 font-mono text-xs sm:text-sm text-left space-y-1">
-                <div className="flex gap-2">
-                  <span className="text-muted-foreground">$</span>
-                  <motion.span
-                    className="text-secondary"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.2 }}
+
+              {/* Orbit nodes */}
+              {orbitNodes.map((node, i) => {
+                const angle = (i * 60 - 90) * (Math.PI / 180);
+                const x = 210 + 170 * Math.cos(angle) - 24;
+                const y = 210 + 170 * Math.sin(angle) - 24;
+                return (
+                  <motion.div
+                    key={i}
+                    className="absolute w-12 h-12 rounded-xl border border-border bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center gap-0.5 hover:border-primary/50 hover:shadow-[0_0_20px_hsl(200,80%,55%,0.15)] transition-all duration-300 cursor-default"
+                    style={{ left: x, top: y }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 + i * 0.1, type: "spring", stiffness: 200 }}
+                    whileHover={{ scale: 1.15, y: -2 }}
                   >
-                    lrsolutions init --tu-negocio
-                  </motion.span>
-                </div>
-                <motion.div
-                  className="text-muted-foreground"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.8 }}
-                >
-                  ✓ Relevamiento completado
-                </motion.div>
-                <motion.div
-                  className="text-muted-foreground"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 2.2 }}
-                >
-                  ✓ Diseño UX/UI listo
-                </motion.div>
-                <motion.div
-                  className="text-muted-foreground"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 2.6 }}
-                >
-                  ✓ Sistema desplegado
-                </motion.div>
-                <motion.div
-                  className="text-primary"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 3 }}
-                >
-                  → Tu negocio, simplificado. 🚀
-                </motion.div>
-              </div>
+                    <node.icon size={16} className="text-primary" />
+                    <span className="text-[8px] font-mono text-muted-foreground">{node.label}</span>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
+
+        {/* Code block decoration - below on all screens */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          className="mt-16 mx-auto max-w-xl lg:hidden"
+        >
+          <div className="rounded-xl border border-border bg-card overflow-hidden shadow-card">
+            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border">
+              <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
+              <div className="w-2.5 h-2.5 rounded-full bg-secondary/40" />
+              <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
+              <span className="ml-3 text-xs text-muted-foreground font-mono">terminal</span>
+            </div>
+            <div className="p-4 font-mono text-xs sm:text-sm text-left space-y-1">
+              <div className="flex gap-2">
+                <span className="text-muted-foreground">$</span>
+                <motion.span
+                  className="text-secondary"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2 }}
+                >
+                  lrsolutions init --tu-negocio
+                </motion.span>
+              </div>
+              <motion.div className="text-muted-foreground" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
+                ✓ Relevamiento completado
+              </motion.div>
+              <motion.div className="text-muted-foreground" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
+                ✓ Diseño UX/UI listo
+              </motion.div>
+              <motion.div className="text-muted-foreground" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.6 }}>
+                ✓ Sistema desplegado
+              </motion.div>
+              <motion.div className="text-primary" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3 }}>
+                → Tu negocio, simplificado. 🚀
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Bottom glow line */}

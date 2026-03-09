@@ -14,10 +14,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-border/50">
       <div className="container flex items-center justify-between h-14">
-        <a href="#" className="flex items-center gap-2.5">
-          <img src={logo} alt="L&R Solutions" className="h-8 w-8 object-contain" />
+        <a href="#" className="flex items-center gap-2.5 group">
+          <img src={logo} alt="L&R Solutions" className="h-8 w-8 object-contain transition-transform duration-300 group-hover:scale-105" />
           <span className="font-display font-semibold text-sm text-foreground">L&R Solutions</span>
         </a>
 
@@ -26,17 +26,20 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-muted"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-muted/50 relative group"
             >
               {l.label}
+              <span className="absolute bottom-0 left-3 right-3 h-px bg-primary/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </a>
           ))}
-          <a
+          <motion.a
             href="#contacto"
-            className="ml-3 gradient-bg text-primary-foreground px-4 py-1.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            className="ml-3 gradient-bg text-primary-foreground px-4 py-1.5 rounded-lg text-sm font-medium hover:shadow-[0_0_20px_hsl(200,80%,55%,0.3)] transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             Contactanos
-          </a>
+          </motion.a>
         </div>
 
         <button className="md:hidden p-2 text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -50,7 +53,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-background border-b border-border"
+            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border"
           >
             <div className="container flex flex-col gap-1 py-3">
               {navLinks.map((l) => (
@@ -58,7 +61,7 @@ const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-muted"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-muted/50"
                 >
                   {l.label}
                 </a>
