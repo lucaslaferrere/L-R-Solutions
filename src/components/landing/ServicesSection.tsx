@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Monitor, Globe, Wrench, LayoutDashboard, ArrowUpRight } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const services = [
   { icon: LayoutDashboard, title: "Sistemas de gestión", desc: "Software a medida para controlar ventas, stock, clientes, comisiones y todo lo que tu negocio necesite." },
@@ -45,21 +46,22 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_30px_hsl(200,80%,55%,0.08)] transition-all duration-300 flex gap-4 overflow-hidden"
             >
-              {/* Corner glow */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[radial-gradient(circle,hsl(200,80%,55%,0.06),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center shrink-0 group-hover:shadow-[0_0_20px_hsl(200,80%,55%,0.2)] transition-shadow duration-300">
-                <s.icon size={20} className="text-primary-foreground" />
-              </div>
-              <div className="flex-1 min-w-0 relative">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-display font-semibold text-sm">{s.title}</h3>
-                  <ArrowUpRight size={14} className="text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+              <TiltCard className="group h-full">
+                <div className="relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_30px_hsl(200,80%,55%,0.08)] transition-all duration-300 flex gap-4 overflow-hidden h-full">
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-[radial-gradient(circle,hsl(200,80%,55%,0.06),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center shrink-0 group-hover:shadow-[0_0_20px_hsl(200,80%,55%,0.2)] transition-shadow duration-300">
+                    <s.icon size={20} className="text-primary-foreground" />
+                  </div>
+                  <div className="flex-1 min-w-0 relative">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-display font-semibold text-sm">{s.title}</h3>
+                      <ArrowUpRight size={14} className="text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

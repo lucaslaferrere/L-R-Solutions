@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageSquare, Search, Code, Rocket } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const steps = [
   { icon: MessageSquare, num: "01", title: "Nos contactás", desc: "Nos contás tu situación y qué necesitás. Sin compromiso, solo una charla." },
@@ -35,7 +36,6 @@ const ProcessSection = () => {
         </motion.div>
 
         <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Connection line behind cards */}
           <div className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px">
             <motion.div
               className="h-full w-full"
@@ -54,19 +54,19 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="relative group"
             >
-              <div className="p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_30px_hsl(200,80%,55%,0.08)] transition-all duration-300 h-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center relative group-hover:shadow-[0_0_20px_hsl(200,80%,55%,0.2)] transition-shadow duration-300">
-                    <s.icon size={18} className="text-primary-foreground" />
+              <TiltCard className="group h-full">
+                <div className="p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_30px_hsl(200,80%,55%,0.08)] transition-all duration-300 h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center relative group-hover:shadow-[0_0_20px_hsl(200,80%,55%,0.2)] transition-shadow duration-300">
+                      <s.icon size={18} className="text-primary-foreground" />
+                    </div>
+                    <span className="text-xs font-mono text-muted-foreground/60">{s.num}</span>
                   </div>
-                  <span className="text-xs font-mono text-muted-foreground/60">{s.num}</span>
+                  <h3 className="font-display font-semibold text-sm mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="font-display font-semibold text-sm mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

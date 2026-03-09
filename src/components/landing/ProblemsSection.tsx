@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FileSpreadsheet, Clock, HelpCircle, AlertTriangle } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const problems = [
   { icon: FileSpreadsheet, title: "¿Llevás todo en Excel o en un cuaderno?", desc: "Perdés información, tiempo y control de tu negocio." },
@@ -42,16 +43,17 @@ const ProblemsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-destructive/30 hover:shadow-[0_0_30px_hsl(0,70%,50%,0.08)] transition-all duration-300"
             >
-              {/* Top accent line */}
-              <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-destructive/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-destructive/10 transition-colors duration-300">
-                <p.icon size={20} className="text-muted-foreground group-hover:text-destructive transition-colors duration-300" />
-              </div>
-              <h3 className="font-display font-semibold text-sm mb-2 text-foreground">{p.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+              <TiltCard className="group h-full">
+                <div className="relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-destructive/30 hover:shadow-[0_0_30px_hsl(0,70%,50%,0.08)] transition-all duration-300 h-full">
+                  <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-destructive/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-destructive/10 transition-colors duration-300">
+                    <p.icon size={20} className="text-muted-foreground group-hover:text-destructive transition-colors duration-300" />
+                  </div>
+                  <h3 className="font-display font-semibold text-sm mb-2 text-foreground">{p.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Zap, Target, Heart, Users, BadgeDollarSign, Compass } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const reasons = [
   { icon: Zap, title: "Velocidad", desc: "Entregamos rápido sin sacrificar calidad." },
@@ -44,18 +45,19 @@ const WhyUsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_30px_hsl(200,80%,55%,0.08)] transition-all duration-300 overflow-hidden"
             >
-              {/* Subtle hover gradient */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(200,80%,55%,0.04),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
-                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-primary/10 group-hover:shadow-[0_0_15px_hsl(200,80%,55%,0.1)] transition-all duration-300">
-                  <r.icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+              <TiltCard className="group h-full">
+                <div className="relative p-6 rounded-xl border border-border bg-card/50 backdrop-blur-sm hover:border-primary/30 hover:shadow-[0_0_30px_hsl(200,80%,55%,0.08)] transition-all duration-300 overflow-hidden h-full">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(200,80%,55%,0.04),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative">
+                    <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-primary/10 group-hover:shadow-[0_0_15px_hsl(200,80%,55%,0.1)] transition-all duration-300">
+                      <r.icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                    </div>
+                    <h3 className="font-display font-semibold text-sm mb-1">{r.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
+                  </div>
                 </div>
-                <h3 className="font-display font-semibold text-sm mb-1">{r.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
