@@ -14,14 +14,16 @@ const ContactSection = () => {
 
   return (
     <section id="contacto" className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 grid-pattern opacity-15" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,hsl(200,80%,55%,0.06),transparent)]" />
       <div className="absolute top-0 left-0 right-0 h-px glow-line" />
 
       <div className="container relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
           <span className="inline-flex items-center gap-2 text-xs font-mono text-primary uppercase tracking-widest mb-4">
@@ -39,11 +41,12 @@ const ContactSection = () => {
         </motion.div>
 
         <motion.form
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
           onSubmit={handleSubmit}
-          className="max-w-lg mx-auto rounded-xl border border-border bg-card p-8 space-y-4"
+          className="max-w-lg mx-auto rounded-xl border border-border bg-card/50 backdrop-blur-sm p-8 space-y-4 hover:border-primary/20 hover:shadow-[0_0_40px_hsl(200,80%,55%,0.06)] transition-all duration-500"
         >
           <div>
             <label className="text-xs font-mono text-muted-foreground mb-1.5 block">Nombre</label>
@@ -52,7 +55,7 @@ const ContactSection = () => {
               required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition placeholder:text-muted-foreground/50"
+              className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-1 focus:ring-primary focus:border-primary/50 focus:shadow-[0_0_15px_hsl(200,80%,55%,0.1)] focus:outline-none transition-all duration-300 placeholder:text-muted-foreground/50"
               placeholder="Tu nombre"
             />
           </div>
@@ -63,7 +66,7 @@ const ContactSection = () => {
               required
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition placeholder:text-muted-foreground/50"
+              className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-1 focus:ring-primary focus:border-primary/50 focus:shadow-[0_0_15px_hsl(200,80%,55%,0.1)] focus:outline-none transition-all duration-300 placeholder:text-muted-foreground/50"
               placeholder="tu@email.com"
             />
           </div>
@@ -74,16 +77,18 @@ const ContactSection = () => {
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition resize-none placeholder:text-muted-foreground/50"
+              className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-1 focus:ring-primary focus:border-primary/50 focus:shadow-[0_0_15px_hsl(200,80%,55%,0.1)] focus:outline-none transition-all duration-300 resize-none placeholder:text-muted-foreground/50"
               placeholder="Contanos sobre tu negocio y qué necesitás..."
             />
           </div>
-          <button
+          <motion.button
             type="submit"
             className="w-full gradient-bg text-primary-foreground py-2.5 rounded-lg font-medium shadow-btn hover:shadow-glow transition-all flex items-center justify-center gap-2 text-sm"
+            whileHover={{ scale: 1.01, y: -1 }}
+            whileTap={{ scale: 0.99 }}
           >
             <Send size={16} /> Enviar mensaje
-          </button>
+          </motion.button>
           <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1">
             <Mail size={12} /> O escribinos directamente a lrsolutionspartners@gmail.com
           </p>
