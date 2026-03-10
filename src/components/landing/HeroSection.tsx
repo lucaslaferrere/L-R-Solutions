@@ -125,19 +125,20 @@ const HeroSection = () => {
 
               {/* Data flow lines - animated dashes */}
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 420 420">
-                {orbitNodes.map((_, i) => {
+              {orbitNodes.map((node, i) => {
                   const angle = (i * 60 - 90) * (Math.PI / 180);
                   const cx = 210 + 170 * Math.cos(angle);
                   const cy = 210 + 170 * Math.sin(angle);
+                  const isHighlighted = node.label === "Database" || node.label === "Excel";
                   return (
                     <motion.line
                       key={i}
                       x1="210" y1="210" x2={cx} y2={cy}
-                      stroke="url(#lineGrad)"
-                      strokeWidth="1"
-                      strokeDasharray="4 4"
+                      stroke={isHighlighted ? "url(#lineGradHighlight)" : "url(#lineGrad)"}
+                      strokeWidth={isHighlighted ? 2 : 1}
+                      strokeDasharray={isHighlighted ? "6 3" : "4 4"}
                       initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: 0.4 }}
+                      animate={{ pathLength: 1, opacity: isHighlighted ? 0.8 : 0.4 }}
                       transition={{ delay: 1 + i * 0.15, duration: 0.8 }}
                     />
                   );
@@ -146,6 +147,10 @@ const HeroSection = () => {
                   <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="hsl(155, 60%, 50%)" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="lineGradHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="hsl(155, 60%, 50%)" stopOpacity="0.7" />
                   </linearGradient>
                 </defs>
               </svg>
