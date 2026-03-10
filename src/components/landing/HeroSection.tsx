@@ -6,7 +6,7 @@ const orbitNodes = [
   { icon: Database, label: "Database", angle: 0 },
   { icon: Cloud, label: "Cloud", angle: 60 },
   { icon: Globe, label: "Web App", angle: 120 },
-  { icon: Shield, label: "Auth", angle: 180 },
+  { icon: FileSpreadsheet, label: "Excel", angle: 180 },
   { icon: BarChart3, label: "Analytics", angle: 240 },
   { icon: Cpu, label: "API", angle: 300 },
 ];
