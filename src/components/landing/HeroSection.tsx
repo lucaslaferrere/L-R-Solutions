@@ -142,35 +142,10 @@ const HeroSection = () => {
                     />
                   );
                 })}
-                {/* Connection line: Database <-> Excel */}
-                {(() => {
-                  const dbAngle = (0 * 60 - 90) * (Math.PI / 180);
-                  const exAngle = (3 * 60 - 90) * (Math.PI / 180);
-                  const dbX = 210 + 170 * Math.cos(dbAngle);
-                  const dbY = 210 + 170 * Math.sin(dbAngle);
-                  const exX = 210 + 170 * Math.cos(exAngle);
-                  const exY = 210 + 170 * Math.sin(exAngle);
-                  return (
-                    <motion.path
-                      d={`M ${dbX} ${dbY} Q ${210 + 80} ${210} ${exX} ${exY}`}
-                      stroke="url(#crossGrad)"
-                      strokeWidth="1.5"
-                      strokeDasharray="6 4"
-                      fill="none"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: 0.5 }}
-                      transition={{ delay: 2, duration: 1.2 }}
-                    />
-                  );
-                })()}
                 <defs>
                   <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="hsl(155, 60%, 50%)" stopOpacity="0.3" />
-                  </linearGradient>
-                  <linearGradient id="crossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="hsl(140, 70%, 45%)" stopOpacity="0.4" />
                   </linearGradient>
                 </defs>
               </svg>
