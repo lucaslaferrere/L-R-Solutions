@@ -22,6 +22,13 @@ const Navbar = () => {
         </a>
 
         <div className="hidden md:flex items-center gap-1">
+          <button
+            onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true }))}
+            className="flex items-center gap-1.5 text-xs font-mono text-muted-foreground/60 hover:text-muted-foreground border border-border/40 hover:border-border rounded-md px-2 py-1 transition-all duration-200 mr-1"
+            title="Abrir buscador"
+          >
+            <span>⌘K</span>
+          </button>
           {navLinks.map((l) => (
             <a
               key={l.href}

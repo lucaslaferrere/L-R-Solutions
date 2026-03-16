@@ -1,6 +1,44 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Terminal, Database, Cloud, Globe, Cpu, FileSpreadsheet, BarChart3 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState, useEffect } from "react";
+
+const techStack = ["React", "Node.js", "PostgreSQL", "Python", "TypeScript", "Tu solución"];
+
+const TypewriterBadge = () => {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % techStack.length);
+        setVisible(true);
+      }, 300);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-xs font-mono text-primary">
+      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+      <AnimatePresence mode="wait">
+        {visible && (
+          <motion.span
+            key={techStack[index]}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.25 }}
+          >
+            {techStack[index]}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+};
 
 const orbitNodes = [
   { icon: Database, label: "Database", angle: 0 },
@@ -44,10 +82,13 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card text-xs text-muted-foreground mb-8"
+              className="flex flex-col sm:flex-row items-center lg:items-start gap-2 mb-8"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse-glow" />
-              <span className="font-mono">Desarrollo de software a medida</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card text-xs text-muted-foreground">
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse-glow" />
+                <span className="font-mono">Desarrollo de software a medida</span>
+              </span>
+              <TypewriterBadge />
             </motion.div>
 
             {/* Title */}
@@ -144,14 +185,14 @@ const HeroSection = () => {
                   );
                 })}
                 <defs>
-                  <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <radialGradient id="lineGrad" cx="210" cy="210" r="170" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.6" />
                     <stop offset="100%" stopColor="hsl(155, 60%, 50%)" stopOpacity="0.3" />
-                  </linearGradient>
-                  <linearGradient id="lineGradHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                  </radialGradient>
+                  <radialGradient id="lineGradHighlight" cx="210" cy="210" r="170" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stopColor="hsl(200, 80%, 55%)" stopOpacity="0.9" />
                     <stop offset="100%" stopColor="hsl(155, 60%, 50%)" stopOpacity="0.7" />
-                  </linearGradient>
+                  </radialGradient>
                 </defs>
               </svg>
 

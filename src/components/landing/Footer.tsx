@@ -34,10 +34,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border text-center">
+        <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
             Hecho con 💙 por L&R Solutions · © {new Date().getFullYear()}
           </p>
+          <span className="flex items-center gap-1.5 text-[11px] font-mono text-muted-foreground">
+            <motion.span
+              className="w-1.5 h-1.5 rounded-full bg-secondary"
+              animate={{ opacity: [1, 0.3, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            Sistema operativo · 99.9% uptime
+          </span>
         </div>
       </div>
     </footer>
