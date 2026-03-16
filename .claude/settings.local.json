@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(pip install:*)",
+      "Bash(magick --version)",
+      "Bash(convert --version)"
+    ]
+  }
+}

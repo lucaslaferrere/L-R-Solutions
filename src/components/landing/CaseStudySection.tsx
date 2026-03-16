@@ -80,7 +80,10 @@ const CaseStudySection = () => {
               <div className="absolute -top-3 left-8 px-2 bg-background text-xs font-mono text-muted-foreground">testimonial</div>
               <div className="absolute top-4 right-6 text-4xl font-display text-primary/10">"</div>
               <p className="text-sm italic text-muted-foreground leading-relaxed mb-4 relative">
-                "Antes llevábamos todo en cuadernos y perdíamos tiempo. Ahora con el sistema de L&R,
+                "Excelente el sistema! Cómo dueño del negocio está siendo una salvación, 
+                súper ordenado y prolijo todo. Esta bien personalizado en base a mi negocio 
+                y los chicos de L&R Solutions estuvieron siempre atrás de todo para que quede 
+                perfecto en base a lo que necesitaba. Ahora con el sistema de L&R,
                 tenemos todo organizado y cada vendedor puede trabajar de forma independiente.
                 Nos cambió la forma de trabajar."
               </p>
