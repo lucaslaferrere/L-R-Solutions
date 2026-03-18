@@ -223,15 +223,15 @@ const HeroSection = () => {
               })}
 
               {/* Center hub */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  className="w-20 h-20 rounded-2xl border border-primary/30 bg-card flex items-center justify-center shadow-[0_0_40px_hsl(200,80%,55%,0.15)]"
-                  animate={{ boxShadow: ["0 0 30px hsl(200,80%,55%,0.1)", "0 0 50px hsl(200,80%,55%,0.2)", "0 0 30px hsl(200,80%,55%,0.1)"] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <img src={logo} alt="L&R" className="w-10 h-10 object-contain" />
-                </motion.div>
-              </div>
+<div className="absolute inset-0 flex items-center justify-center">
+  <motion.img
+    src="/favicon.png"
+    alt="L&R"
+    className="w-16 h-16 object-contain"
+    animate={{ filter: ["drop-shadow(0 0 8px hsl(200,80%,55%,0.3))", "drop-shadow(0 0 16px hsl(200,80%,55%,0.6))", "drop-shadow(0 0 8px hsl(200,80%,55%,0.3))"] }}
+    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+  />
+</div>
 
               {/* Orbit nodes */}
               {orbitNodes.map((node, i) => {
